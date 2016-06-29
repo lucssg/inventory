@@ -19,10 +19,14 @@
     vm.creationDate = 1466713238666;
     vm.showToastr = showToastr;
 
-    Inventory.keys({verb: 'KEYS', param: '*'}, function(data) {
-      $log.debug(data);
-      toastr.info(data['KEYS'][1]);
-    });
+    vm.keys = Inventory.keys({verb: 'KEYS', param: '*'}, function() {
+        $log.debug(vm.keys['KEYS']);
+//        $log.debug(vm.keys['KEYS'].splice(0, 1));
+        vm.keys['KEYS'].splice(0, 1);
+        vm.keys = vm.keys['KEYS'];
+        toastr.info(vm.keys + '');
+      }  
+    );
 
     activate();
 

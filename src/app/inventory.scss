@@ -1,0 +1,32 @@
+.techs {
+
+  display: inline;
+  float: left;
+  width: 66%;
+
+  md-card {
+    width: 10%;
+
+
+  	md-card-content.server {
+
+	    p {
+
+    		a {
+    			display: block;
+    			font-size: 0;
+//				visibility: hidden;
+		  		width: 50px;
+    			height: 75px;
+    			background: rgba(0,0,0,0) url('../assets/images/icons_computer_hardware.jpg') no-repeat scroll -125px -680px;
+    		}
+    	}
+	  }
+  }
+}
+
+.detail  {
+  float: right;
+  display: inline;
+  width: 25%;
+}

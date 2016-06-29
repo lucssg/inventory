@@ -3,16 +3,15 @@
 
   angular
     .module('seb', 
-    	[
-    		'ngAnimate', 
-    		'ngCookies', 
-    		'ngTouch', 
-    		'ngSanitize', 
-    		'ngMessages', 
-    		'ngAria', 
-    		'ngResource', 
-    		'ui.router', 
-    		'ngMaterial', 
-    		'toastr']);
-
+        [
+            'ngAnimate', 
+            'ngCookies', 
+            'ngTouch', 
+            'ngSanitize', 
+            'ngMessages', 
+            'ngAria', 
+            'ngResource', 
+            'ui.router', 
+            'ngMaterial', 
+            'toastr']);
 })();

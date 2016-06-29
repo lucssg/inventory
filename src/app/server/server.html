@@ -1,0 +1,11 @@
+<md-card  ng-if="server.details">
+  <md-card-content ui-view>
+    <md-card-content>
+      <p ng-click="server.close()">X</p>
+      <p>Host: {{server.details.ansible_hostname}}</p>
+      <p>IP: {{server.details.ansible_default_ipv4.address}}</p>
+      <p>PV: {{server.details.ansible_product_version}}</p>
+      <p>{{server.details}}</p>
+    </md-card-content>
+  </md-card-content>
+</md-card>

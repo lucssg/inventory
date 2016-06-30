@@ -2,25 +2,20 @@
 
   <md-content>
     <header>
-      <acme-navbar creation-date="inventory.creationDate"></acme-navbar>
+      <acme-navbar creation-date="inventory.creationDate" version="inventory.version"></acme-navbar>
     </header>
 
     <section class="jumbotron">
-      <h1>'Allo, 'Allo!</h1>
-      <p class="lead">
-        <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-        Always a pleasure scaffolding your apps.
-      </p>
-      <md-button class="md-raised animated infinite" ng-class="inventory.classAnimation" ng-click="inventory.showToastr()">Splendid Toastr</md-button>
-      <p>
-        With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-      </p>
+      <h1>OFS Inventory</h1>
     </section>
 
     <div class="techs" layout-align="center">
-      <md-card ng-repeat="key in inventory.keys | orderBy:'rank'">
+      <md-card ng-repeat="key in inventory.keys | orderBy ">
         <md-card-content class="server">
-          <p><a ui-sref="inventory.server({key: key})">{{ key }}</a></p>
+          <p>
+            <a ui-sref="inventory.server({key: key})">{{ key }}</a>
+            <span>{{ key | replace:'ansible_facts':'' }}</span>
+          </p>
         </md-card-content>
       </md-card>
     </div>

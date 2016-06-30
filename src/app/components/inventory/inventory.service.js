@@ -3,12 +3,15 @@
 
   angular
     .module('seb')
-		.factory('TestInventory', function ($resource) {
+	.factory('TestInventory', testInventory);
+
+		/** @ngInject */
+		function testInventory ($resource) {
 			return $resource('http://localhost:7379/:verb/:param', null, {
 				keys: {
 					verb: 'KEYS',
 					param: '*' 
 				}
 			});
-		});
-});
+		}
+})();

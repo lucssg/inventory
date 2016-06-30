@@ -1,11 +1,16 @@
 <md-card  ng-if="server.details">
-  <md-card-content ui-view>
-    <md-card-content>
+	<md-card-content class="closing">
       <p ng-click="server.close()">X</p>
-      <p>Host: {{server.details.ansible_hostname}}</p>
-      <p>IP: {{server.details.ansible_default_ipv4.address}}</p>
-      <p>PV: {{server.details.ansible_product_version}}</p>
+	</md-card-content>
+    <md-card-content class="server-data">
+      <p><span class="label">Host:</span> {{server.details.ansible_hostname}}</p>
+      <p><span class="label">IP:</span> {{server.details.ansible_default_ipv4.address}}</p>
+      <p><span class="label">PV:</span> {{server.details.ansible_product_version}}</p>
+      <p><span class="label">OS:</span> 
+      	{{ server.details.ansible_os_family }}/{{server.details.ansible_distribution_release}}
+      </p>
+      <p><span class="label">Cpu:</span> {{server.details.ansible_processor_vcpus}}</p>
+      <p><span class="label">RAM:</span> {{server.details.ansible_memory_mb.real.total}} Mo</p>
       <p>{{server.details}}</p>
     </md-card-content>
-  </md-card-content>
 </md-card>

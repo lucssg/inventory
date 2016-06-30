@@ -11,43 +11,20 @@
     .controller('InventoryController', InventoryController);
 
   /** @ngInject */
-  function InventoryController($log, Inventory, $timeout, webDevTec, toastr) {
+  function InventoryController($log, Inventory, $timeout, toastr) {
     var vm = this;
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
     vm.creationDate = 1466713238666;
-    vm.showToastr = showToastr;
+    vm.version = '0.0.1';
 
     vm.keys = Inventory.keys({verb: 'KEYS', param: '*'}, function() {
-        $log.debug(vm.keys['KEYS']);
-//        $log.debug(vm.keys['KEYS'].splice(0, 1));
-        vm.keys['KEYS'].splice(0, 1);
+        var cacheIndex = vm.keys['KEYS'].indexOf('ansible_cache_keys');
+        vm.keys['KEYS'].splice(cacheIndex, 1);
+//        $log.debug(vm.keys['KEYS']);
         vm.keys = vm.keys['KEYS'];
-        toastr.info(vm.keys + '');
+        toastr.info('Nombre de serveurs audités: ' + vm.keys.length);
       }  
     );
 
-    activate();
-
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
   }
 })();

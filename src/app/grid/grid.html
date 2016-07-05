@@ -1,0 +1,20 @@
+<div>
+<table>
+  <tr>
+    <th>Host</th>
+    <th>IP</th>
+    <th>PV</th>
+    <th>OS</th>
+    <th>CPU</th>
+    <th>RAM</th>
+  </tr>
+  <tr ng-repeat="server in grid.servers track by $index" >
+    <td>{{server.ansible_hostname}}</td>
+    <td>{{server.ansible_default_ipv4.address}}</td>
+    <td>{{server.ansible_product_version}}</td>
+    <td>{{ server.ansible_os_family }}/{{server.ansible_distribution_release}}</td>
+    <td>{{server.ansible_processor_vcpus}}</td>
+    <td>{{server.ansible_memory_mb.real.total}} Mo</td>
+  </tr>
+</table>
+</div>

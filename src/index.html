@@ -23,8 +23,29 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div layout="column" layout-fill>
 
-    <div ui-view></div>
+        <header>
+          <acme-navbar creation-date="inventory.creationDate" version="inventory.version"></acme-navbar>
+        </header>
+
+        <section class="jumbotron">
+          <h1>OFS Inventory</h1>
+        </section>
+          <div>
+            <span>
+                <a ui-sref="inventory" alt="inventory">Inventory</a>
+            </span>
+            <span>
+                <a ui-sref="grid" alt="grid">Grid</a>
+            </span>
+          </div>
+
+        <div ui-view></div>
+
+
+
+    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

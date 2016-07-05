@@ -3,15 +3,10 @@
 
   angular
     .module('seb')
-    .factory('Server', function ($resource) {
-      return $resource('http://localhost:7379/:verb/:param', null, {
-        detail: { method: 'GET' }
-      });
-    })
     .controller('ServerController', ServerController);
 
   /** @ngInject */
-  function ServerController($log, $state, Server) {
+  function ServerController($log, $state, Redis) {
     var vm = this;
 
     vm.close = close;
@@ -20,7 +15,7 @@
 
     function details() {
 //      $log.debug("details");
-      vm.details = Server.detail(
+      vm.details = Redis.detail(
         {verb: 'GET', param: $state.params.key}, 
         function() {
           vm.details = angular.fromJson(vm.details.GET);

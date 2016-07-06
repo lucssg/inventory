@@ -8,7 +8,7 @@
     <th>CPU</th>
     <th>RAM</th>
   </tr>
-  <tr ng-repeat="server in grid.servers track by $index" >
+  <tr ng-repeat="server in grid.servers" >
     <td>{{server.ansible_hostname}}</td>
     <td>{{server.ansible_default_ipv4.address}}</td>
     <td>{{server.ansible_product_version}}</td>

@@ -3,7 +3,8 @@
 
   angular
     .module('seb')
-	.factory('Redis', redis);
+	.factory('Redis', redis)
+	.factory('RedisZRange', redisZRange);
 
 		/** @ngInject */
 		function redis($resource) {
@@ -13,6 +14,12 @@
 					param: '*' 
 				}, 
 				detail: { method: 'GET' }
+			});
+		}
+
+		function redisZRange($resource) {
+			return $resource('http://localhost:7379/ZRANGE/:index/:start/:stop', null, {
+				all: { method: 'GET' }
 			});
 		}
 })();

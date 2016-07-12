@@ -23,6 +23,6 @@ Front AngularJs permettant de visualiser les facts Ansible des différents serve
 
 ### Front
 
-* Configuration de la location du back webdis dans le fichier redis.service.js # TODO à modifier pour conf centrale
-* Déploiement du front sur un serveur web
+* Configuration de la location du back webdis dans le fichier gulp/constants.json puis lancement de gulp build
+* Déploiement du front sur un serveur web // TODO à préciser (gulp build + zip de dist  + copy + unzip)
 

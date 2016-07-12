@@ -1,20 +1,22 @@
 <div>
 <table>
   <tr>
-    <th>Host</th>
-    <th>IP</th>
-    <th>PV</th>
-    <th>OS</th>
-    <th>CPU</th>
-    <th>RAM</th>
+    <th class="right_border">Host</th>
+    <th class="right_border">IP</th>
+    <th class="right_border">PV</th>
+    <th class="right_border">OS</th>
+    <th class="right_border">CPU</th>
+    <th class="right_bottom">RAM</th>
+    <th>Disk</th>
   </tr>
-  <tr ng-repeat="server in grid.servers" >
-    <td>{{server.ansible_hostname}}</td>
-    <td>{{server.ansible_default_ipv4.address}}</td>
-    <td>{{server.ansible_product_version}}</td>
-    <td>{{ server.ansible_os_family }}/{{server.ansible_distribution_release}}</td>
-    <td>{{server.ansible_processor_vcpus}}</td>
-    <td>{{server.ansible_memory_mb.real.total}} Mo</td>
+  <tr class="inventory" ng-repeat="server in grid.servers" >
+    <td class="right_border">{{server.ansible_hostname}}</td>
+    <td class="right_border">{{server.ansible_default_ipv4.address}}</td>
+    <td class="right_border">{{server.ansible_product_version}}</td>
+    <td class="right_border">{{ server.ansible_os_family }}/{{server.ansible_distribution_release}}</td>
+    <td class="right_border">{{server.ansible_processor_vcpus}}</td>
+    <td class="right_border">{{server.ansible_memory_mb.real.total}} Mo</td>
+    <td>{{server.diskSpace}} Go</td>
   </tr>
 </table>
 </div>

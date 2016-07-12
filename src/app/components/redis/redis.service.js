@@ -7,18 +7,18 @@
 	.factory('RedisZRange', redisZRange);
 
 		/** @ngInject */
-		function redis($resource) {
-			return $resource('http://localhost:7379/:verb/:param', null, {
+		function redis($resource, HOST, $log) {
+			$log.debug(HOST);
+			return $resource(HOST + '/:verb/:param', null, {
 				keys: {
-					verb: 'KEYS',
-					param: '*' 
+					method: 'GET'
 				}, 
 				detail: { method: 'GET' }
 			});
 		}
 
-		function redisZRange($resource) {
-			return $resource('http://localhost:7379/ZRANGE/:index/:start/:stop', null, {
+		function redisZRange($resource, HOST) {
+			return $resource(HOST + '/ZRANGE/:index/:start/:stop', null, {
 				all: { method: 'GET' }
 			});
 		}

@@ -6,7 +6,7 @@
     .controller('ServerController', ServerController);
 
   /** @ngInject */
-  function ServerController($log, $state, Redis) {
+  function ServerController($log, $state, Redis, Utils) {
     var vm = this;
 
     vm.close = close;
@@ -19,6 +19,7 @@
         {verb: 'GET', param: $state.params.key}, 
         function() {
           vm.details = angular.fromJson(vm.details.GET);
+          vm.details.diskSpace = Utils.countDiskSpace(vm.details.ansible_devices);
           $log.debug(vm.details);
         }
       );

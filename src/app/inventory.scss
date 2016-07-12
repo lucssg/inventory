@@ -1,3 +1,7 @@
+div.content {
+  margin-top: 2%;
+}
+
 .techs {
 
   float: left;
@@ -54,4 +58,33 @@
       text-transform: uppercase;
     }
   }
+}
+
+table  {
+
+  border-collapse: collapse;
+
+  th.right_border {
+    border-right: 1px dotted #ccc;
+  }
+
+  th {
+    background-color: #eee;
+  }
+
+  td, th {
+    padding: 2px 5px 2px 5px;
+    font-size: 0.9em;
+  }
+
+  tr.inventory {
+
+    border-top: 1px dotted #ccc;
+
+    td.right_border {
+      border-right: 1px dotted #ccc;
+      text-align: center;
+    }
+  }
+
 }

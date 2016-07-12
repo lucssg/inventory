@@ -1,0 +1,8 @@
+{
+	"local": {
+	  "HOST": "http://localhost:8161/"
+	},
+	"prod": {
+	  "HOST": "ofs:8161"
+	}
+}

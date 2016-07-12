@@ -6,20 +6,21 @@
     .controller('GridController', GridController);
 
   /** @ngInject */
-  function GridController($log, RedisZRange, toastr) {
-    var self = this;
+  function GridController($log, RedisZRange, Utils, toastr) {
+    var vm = this;
 
-    self.creationDate = 1466713238666;
-    self.version = '0.0.1';
+    vm.creationDate = 1466713238666;
+    vm.version = '0.0.1';
 
-    self.servers = RedisZRange.all(
+    vm.servers = RedisZRange.all(
         { index: 'ansible_cache_facts', start: '0', stop: '100' }, 
         function() {
-          self.servers = self.servers['ZRANGE'];
-          for (var key in self.servers) {
-            self.servers[key] = angular.fromJson(self.servers[key]);
+          vm.servers = vm.servers['ZRANGE'];
+          for (var key in vm.servers) {
+            vm.servers[key] = angular.fromJson(vm.servers[key]);
+            vm.servers[key].diskSpace = Utils.countDiskSpace(vm.servers[key].ansible_devices);
           }
-          toastr.info('Nombre de serveurs audités: ' + self.servers.length);
+          toastr.info('Nombre de serveurs audités: ' + vm.servers.length);
         });
 
   }

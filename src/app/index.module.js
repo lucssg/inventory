@@ -13,5 +13,6 @@
             'ngResource', 
             'ui.router', 
             'ngMaterial', 
-            'toastr']);
+            'toastr', 
+            'seb.constants']);
 })();
